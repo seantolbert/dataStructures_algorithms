@@ -1,0 +1,30 @@
+// recursions are functions that call themselves
+// recursions are everywhere
+// JSON.parse or JSON.stringify are conidered recursive since the methods are built in
+
+// any time a function is invoked, it is placed on a call stack which is a type of data structure
+// when js compilers see the return keyword or the function ends, the functioon is then popped off of the call stack
+
+// recursive functions keep pushing function s back onto the callstack
+
+// invoke the same function with a different input until you reach your base case
+// base cases are the condition where your recursion stops
+// ^^ MOST IMPORTANT POINT FOR RECURSIONS
+
+// where things start to go wrong:
+
+// no base case
+// forgetting to return or returning the wrong thing
+// stack overflow, where the stack has tooo many calls waiting to be executed
+
+function factorial(num) {
+  if (num === 1) return 1;
+  // should be factorial(num - 1), otherwise you are recfalling the same number over and over
+  return num * factorial(num);
+}
+
+function factorial(num) {
+  // should be return 1, the cnsole.log will noot end the function causing stack overflow
+  if (num === 1) console.log(1);
+  return num * factorial(num - 1);
+}
